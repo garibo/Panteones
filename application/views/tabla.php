@@ -5,6 +5,9 @@
 
 <div ng-controller="tablaCtrl">
 	
+<div class="form-group">
+	<input type="text" class="form-control" name="nrecibo" placeholder="Buscar..." ng-model="clave">
+</div>
 
 <table class="table table-bordered" >
 
@@ -15,24 +18,25 @@
 		    <th>Fecha fallecimiento</th>
 		    <th>Panteon</th>
 		    <th>Domicilio</th>
-		    <th>Editar</th>
+		    <th>Detalles</th>
 		</tr>
 	</thead>
 
 	<tbody>
-		<tr ng-repeat="difunto in difuntos | pagination: curPage * pageSize | limitTo: pageSize">
-			<td>{{ ($index + 1) + (pageSize * curPage) }}</td>
+		<tr ng-repeat="difunto in difuntos | filter: clave | pagination: curPage * pageSize | limitTo: pageSize">
+			<td ng-hide="clave.length">{{ ($index + 1) + (pageSize * curPage) }}</td>
+			<td ng-show="clave.length">{{ $index + 1 }}</td>
 			<td>{{difunto.nombre_finado}}</td>
 			<td>{{difunto.fecha_fallecimiento}}</td>
 			<td>{{difunto.panteon}}</td>
 			<td>{{difunto.domicilio}}</td>
-			<td><a ng-href="http://localhost/panteones/archivo/editar/{{difunto.id}}">Editar</a></td>
+			<td><a ng-href="http://localhost/panteones/archivo/ver/{{difunto.id}}">Detalle</a></td>
 		</tr>
 	</tbody>
 
 </table>
 
-<nav>
+<nav ng-hide="clave.length">
   <ul class="pager">
     <li class="previous">
     	<a href="">
