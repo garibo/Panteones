@@ -112,7 +112,7 @@
   <div class="col-md-9"><?php echo $domicilio; ?> </div>
 </div>
 
-<a href="#" class="silver-flat-button">Editar difunto</a>
-<a href="#" class="silver-flat-button">Editar pagos y permisos</a>
-<a href="#" class="silver-flat-button">Editar localizacion</a>
+<a href="<?= base_url('archivo/editardifunto/'.$id) ?>" class="silver-flat-button">Editar difunto</a>
+<a href="<?= base_url('archivo/editarpagos/'.$id) ?>" class="silver-flat-button">Editar pagos y permisos</a>
+<a href="<?= base_url('archivo/editarlocalizacion/'.$id) ?>" class="silver-flat-button">Editar localizacion</a>
 <a href="#" class="pomegranate-flat-button">Elminar</a>

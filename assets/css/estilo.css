@@ -60,7 +60,7 @@ button {
 }
 
 button:hover {
-    background-color: #e8fff5;
+    /*background-color: #e8fff5;*/
     cursor: pointer;
     text-decoration: none;
 }
