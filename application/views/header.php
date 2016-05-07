@@ -32,8 +32,8 @@
           <ul class="nav navbar-nav navbar-left">
             <li><a href="<?= base_url() ?>">Registro</a></li>
             <li><a href="<?= base_url('archivo') ?>">Archivo</a></li>
-            <li><a href="#">Estadisticas</a></li>
-            <li><a href="#">Pagos</a></li>
+            <li><a href="<?= base_url('estadistica') ?>">Estadisticas</a></li>
+            <li><a href="#">Terrenos</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
