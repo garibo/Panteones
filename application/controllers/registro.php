@@ -89,8 +89,16 @@ class Registro extends CI_Controller {
 
 		if($this->db->insert('localizacion', $data))
 		{
-			echo "Registro completado";
+			redirect(base_url("registro/exito"));
 		}
+	}
+
+	public function exito()
+	{
+			$this->load->view('header');
+			$this->load->view('registro');
+			$this->load->view('footer');		
+			$this->load->view('exito');
 	}
 }
 ?>

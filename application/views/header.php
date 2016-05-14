@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Plantilla panteones</title>
-
     <link href="<?= base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/sweetalert.css') ?>" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/estilo.css') ?>">
-
+    
   
   </head>
   <body>
@@ -33,7 +33,7 @@
             <li><a href="<?= base_url() ?>">Registro</a></li>
             <li><a href="<?= base_url('archivo') ?>">Archivo</a></li>
             <li><a href="<?= base_url('estadistica') ?>">Estadisticas</a></li>
-            <li><a href="#">Terrenos</a></li>
+            <li><a href="<?= base_url('terreno') ?>">Terrenos</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
