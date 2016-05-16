@@ -60,3 +60,17 @@ CREATE TABLE usuarios
 	passwords 			varchar(500) 		character set utf8 collate utf8_spanish_ci, --Sealed Data - Algoritmo de encriptacion asimetrica
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE terrenos
+(
+	id 							int 					not null auto_increment,
+	nombre_apartante  			varchar(150) 			character set utf8 collate utf8_spanish_ci,
+	lt							numeric,
+	mz							numeric,
+	sec							numeric,
+	fila 						numeric,
+	panteon						varchar(70) 			character set utf8 collate utf8_spanish_ci,
+	domicilio					varchar(70) 			character set utf8 collate utf8_spanish_ci,
+	estado						boolean,
+	PRIMARY KEY (id)
+);
