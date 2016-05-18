@@ -48,6 +48,8 @@ class M_Difuntos extends CI_Model {
 	{
 		$basicos = $this->db->get_where('difuntos', array('id' => $id))->result_array();
 		$data['nombre'] 				= $basicos[0]['nombre_finado'];
+		$data['id'] 					= $id;
+		$data['genero'] 				= $basicos[0]['genero'];
 		$data['fecha_archivo'] 			= $basicos[0]['fecha_archivo'];
 		$data['fecha_fallecimiento'] 	= $basicos[0]['fecha_fallecimiento'];
 		$data['nombre_familiar'] 		= $basicos[0]['nombre_familiar'];
@@ -62,6 +64,7 @@ class M_Difuntos extends CI_Model {
 		$pagos = $this->db->get_where('pagos', array('id_difunto' => $id))->result_array();
 		$permisos = $this->db->get_where('permisos', array('id_difunto' => $id))->result_array();
 		
+		$data['id'] 					= $id;
 		$data['fecha_pago'] 			= $pagos[0]['fecha_pago'];
 		$data['nrecibo'] 				= $pagos[0]['nrecibo'];
 		$data['cantidad'] 				= $pagos[0]['cantidad'];
@@ -79,6 +82,7 @@ class M_Difuntos extends CI_Model {
 	public function getLocalizacion($id)
 	{
 		$localizacion 	= $this->db->get_where('localizacion', 	array('id_difunto' => $id))->result_array();
+		$data['id'] 					= $id;
 		$data['lt'] 					= $localizacion[0]['lt'];
 		$data['mz'] 					= $localizacion[0]['mz'];
 		$data['sec'] 					= $localizacion[0]['sec'];

@@ -1,31 +1,43 @@
 <h1 class="text-center">Editar pagos y permisos</h1>
 
-<form class="form-horizontal">
-  <div class="form-group">
+<?php echo form_open('archivo/updatePago/'.$id, array('class' => 'form-horizontal')); ?>
+  <div class="form-group <?php if(form_error('fecha_pago')) echo 'has-error' ?>">
     <label for="inputEmail3" class="col-sm-2 control-label">Fecha de pago: </label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" value="<?php echo $fecha_pago ?>" >
+      <input type="date" class="form-control" value="<?php echo $fecha_pago ?>" name="fecha_pago">
+      <div class="help-block">
+        <p><?php echo form_error('fecha_pago'); ?></p>
+      </div>
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group <?php if(form_error('nrecibo')) echo 'has-error' ?>">
     <label for="inputPassword3" class="col-sm-2 control-label">Numero de recibo</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" value="<?php echo $nrecibo ?>" placeholder="Numero de recibo">
+      <input type="text" class="form-control" value="<?php echo $nrecibo ?>" placeholder="Numero de recibo" name="nrecibo">
+      <div class="help-block">
+        <p><?php echo form_error('nrecibo'); ?></p>
+      </div>
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group <?php if(form_error('cantidad')) echo 'has-error' ?>">
     <label for="inputPassword3" class="col-sm-2 control-label">cantidad</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" value="false" placeholder="Cantidad">
+      <input type="text" class="form-control" value="<?php echo $cantidad ?>" placeholder="Cantidad" name="cantidad">
+      <div class="help-block">
+        <p><?php echo form_error('cantidad'); ?></p>
+      </div>
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group <?php if(form_error('referendo')) echo 'has-error' ?>">
     <label for="inputPassword3" class="col-sm-2 control-label">Referndo año</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" value="<?php echo $referendo ?>" placeholder="Refeferendo">
+      <input type="text" class="form-control" value="<?php echo $referendo ?>" placeholder="Refeferendo" name="referendo">
+      <div class="help-block">
+        <p><?php echo form_error('referendo'); ?></p>
+      </div>
     </div>
   </div>
 
@@ -70,7 +82,7 @@
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <input type="submit" checked="Guardar cambios" class="turquoise-flat-button">
+      <input type="submit" value="Guardar cambios" class="turquoise-flat-button">
     </div>
   </div>
 </form>

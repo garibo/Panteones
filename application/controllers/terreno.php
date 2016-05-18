@@ -25,5 +25,10 @@ class Terreno extends CI_Controller {
 		$query = $this->db->get('terrenos');
 		return $this->output->set_content_type('application/json')->set_output(json_encode($query->result()));
 	}
+
+	public function addTerreno()
+	{
+		
+	}
 }
 

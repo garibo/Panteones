@@ -115,4 +115,26 @@
 <a href="<?= base_url('archivo/editardifunto/'.$id) ?>" class="silver-flat-button">Editar difunto</a>
 <a href="<?= base_url('archivo/editarpagos/'.$id) ?>" class="silver-flat-button">Editar pagos y permisos</a>
 <a href="<?= base_url('archivo/editarlocalizacion/'.$id) ?>" class="silver-flat-button">Editar localizacion</a>
-<a href="#" class="pomegranate-flat-button">Elminar</a>
+<a href="#" class="pomegranate-flat-button" id="elim">Elminar</a>
+
+<script type="text/javascript">
+  
+  (function(){
+
+    $("#elim").click(function(){
+      swal({   
+        title: "Estas seguro?",   
+        text: "El registro se eliminara!",   
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "#DD6B55",   
+        confirmButtonText: "Si, eliminalo!",   
+        closeOnConfirm: false 
+      }, function(){   
+        window.location.replace("<?= base_url('archivo/eliminar/'.$id) ?>");
+      });
+    });
+
+  })();
+
+</script>

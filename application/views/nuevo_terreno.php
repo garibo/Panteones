@@ -19,6 +19,13 @@
   </div>
 
   <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Nombre apartante: </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control"  placeholder="Nombre">
+    </div>
+  </div>
+
+  <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Manzana: </label>
     <div class="col-sm-10">
       <input type="text" class="form-control"  placeholder="Manzana">
