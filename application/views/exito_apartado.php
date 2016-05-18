@@ -7,5 +7,7 @@
 		showCancelButton: false,   
 		confirmButtonText: "Regresar a principal!",   
 		closeOnConfirm: false 
+	},function(){   
+		window.location.replace("http://localhost/panteones/terreno/");
 	});
 </script>
