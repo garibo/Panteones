@@ -33,7 +33,7 @@
 			<td>{{terreno.sec}}</td>
 			<td>{{terreno.fila}}</td>
 			<td>{{terreno.panteon}}</td>
-			<td><a ng-href="http://localhost/panteones/archivo/ver/{{terreno.id}}">Detalle</a></td>
+			<td><a ng-href="http://localhost/panteones/terreno/ver/{{terreno.id}}">Detalle</a></td>
 		</tr>
 	</tbody>
 

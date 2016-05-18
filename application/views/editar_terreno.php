@@ -1,32 +1,10 @@
-<?php 
-if($tomado)
-{
-  echo '<div class="alert alert-danger alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> 
-  <h4>Parece que tenemos un error!</h4> 
-  <p>Esta locacion ya ha sido tomada o apartada por alguien mas</p> 
- </div>';
-} 
-?>
-
-
 <h1 class="text-center">Apartar localizacion</h1>
 
-
-<?php echo form_open('terreno/addTerreno/', array('class' => 'form-horizontal')); ?>
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Panteon: </label>
-    <div class="col-sm-10">
-      <select class="form-control" name="panteon">
-        <option>Panteon San blas</option>
-        <option>Panteon san pedro</option>
-      </select>
-    </div>
-  </div>
-
+<?php echo form_open('terreno/update/'.$id, array('class' => 'form-horizontal')); ?>
   <div class="form-group <?php if(form_error('nombre_apartante')) echo 'has-error' ?>">
     <label for="inputPassword3" class="col-sm-2 control-label">Nombre apartante: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control"  placeholder="Nombre" name="nombre_apartante">
+      <input type="text" class="form-control"  placeholder="Nombre" name="nombre_apartante" value="<?php echo $nombre_apartante ?>">
       <div class="help-block">
         <p><?php echo form_error('nombre_apartante'); ?></p>
       </div>
@@ -36,7 +14,7 @@ if($tomado)
   <div class="form-group <?php if(form_error('lt')) echo 'has-error' ?>">
     <label for="inputPassword3" class="col-sm-2 control-label">Lote: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control"  placeholder="Lote" name="lt">
+      <input type="text" class="form-control"  placeholder="Lote" name="lt" value="<?php echo $lt ?>">
       <div class="help-block">
         <p><?php echo form_error('lt'); ?></p>
       </div>
@@ -46,7 +24,7 @@ if($tomado)
   <div class="form-group <?php if(form_error('mz')) echo 'has-error' ?>">
     <label for="inputPassword3" class="col-sm-2 control-label">Manzana: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control"  placeholder="Manzana" name="mz">
+      <input type="text" class="form-control"  placeholder="Manzana" name="mz" value="<?php echo $mz ?>">
       <div class="help-block">
         <p><?php echo form_error('mz'); ?></p>
       </div>
@@ -56,7 +34,7 @@ if($tomado)
   <div class="form-group <?php if(form_error('sec')) echo 'has-error' ?>">
     <label for="inputPassword3" class="col-sm-2 control-label">Seccion: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control"  placeholder="Seccion" name="sec">
+      <input type="text" class="form-control"  placeholder="Seccion" name="sec" value="<?php echo $sec ?>">
       <div class="help-block">
         <p><?php echo form_error('sec'); ?></p>
       </div>
@@ -66,7 +44,7 @@ if($tomado)
   <div class="form-group <?php if(form_error('fila')) echo 'has-error' ?>">
     <label for="inputPassword3" class="col-sm-2 control-label">Fila: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control"  placeholder="Fila" name="fila">
+      <input type="text" class="form-control"  placeholder="Fila" name="fila" value="<?php echo $fila ?>">
       <div class="help-block">
         <p><?php echo form_error('fila'); ?></p>
       </div>
@@ -76,24 +54,14 @@ if($tomado)
   <div class="form-group <?php if(form_error('domicilio')) echo 'has-error' ?>">
     <label for="inputPassword3" class="col-sm-2 control-label">Domicilio: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control"  placeholder="Domicilio" name="domicilio">
+      <input type="text" class="form-control"  placeholder="Domicilio" name="domicilio" value="<?php echo $domicilio ?>">
       <div class="help-block">
         <p><?php echo form_error('domicilio'); ?></p>
       </div>
     </div>
   </div>
 
-  <div class="form-group">
-  <label for="inputPassword3" class="col-sm-2 control-label"> </label>
-   <div class="checkbox col-sm-10">
-      <label>
-        <input type="checkbox" name="estado"> En aparte
-      </label>
-    </div>
-  </div>
-
-
-  <div class="form-group">
+   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <input type="submit" value="Guardar cambios" class="turquoise-flat-button">
     </div>
