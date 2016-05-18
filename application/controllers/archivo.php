@@ -141,6 +141,7 @@ class Archivo extends CI_Controller {
 
 	public function updateLocalizacion($id)
 	{
+		$data['tomado'] = false;
 		$this->form_validation->set_rules('lt', 'Lote', 'trim|required|numeric');
 		$this->form_validation->set_rules('mz', 'Manzana', 'trim|required|numeric');
 		$this->form_validation->set_rules('sec', 'Seccion', 'trim|required|numeric');
@@ -170,11 +171,30 @@ class Archivo extends CI_Controller {
 				"domicilio" 	=> $this->input->post("domicilio")
 			);
 
-			$this->db->where('id', $id);
-			if($this->db->update('localizacion', $data))
+			$data2 = array(
+				"lt"				=> $this->input->post("lt"),
+				"mz" 				=> $this->input->post("mz"),
+				"sec" 				=> $this->input->post("sec"),
+				"fila" 				=> $this->input->post("fila"),
+			);
+
+			if($this->db->get_where('terrenos', $data2)->num_rows() == 0 &&  $this->db->get_where('localizacion', $data2)->num_rows() == 0)
 			{
-				redirect(base_url("archivo/ver/".$id));
+				$this->db->where('id_difunto', $id);
+				if($this->db->update('localizacion', $data))
+				{
+					redirect(base_url("archivo/ver/".$id));
+				}			
 			}
+			else 
+			{
+				$data = $this->m_difuntos->getLocalizacion($id);
+				$data['tomado'] = true;
+				$this->load->view('header');		
+				$this->load->view('editar_localizacion', $data);	
+				$this->load->view('footer');
+			}
+			
 		}
 
 	}

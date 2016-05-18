@@ -33,7 +33,7 @@
   <div class="col-md-9"><?php echo $domicilio; ?> </div>
 </div>
 
-<a href="<?= base_url('terreno/editar/'.$id) ?>" class="silver-flat-button">Editar difunto</a>
+<a href="<?= base_url('terreno/editar/'.$id) ?>" class="silver-flat-button">Editar terreno</a>
 <a href="#" class="pomegranate-flat-button" id="elim">Elminar</a>
 
 <script type="text/javascript">

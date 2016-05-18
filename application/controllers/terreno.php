@@ -72,7 +72,7 @@ class Terreno extends CI_Controller {
 				"panteon" 			=> $this->input->post("panteon")
 			);
 
-			if($query = $this->db->get_where('terrenos', $data2)->num_rows() <= 0 && $query = $this->db->get_where('localizacion', $data2)->num_rows() <= 0)
+			if($this->db->get_where('terrenos', $data2)->num_rows() == 0 && $this->db->get_where('localizacion', $data2)->num_rows() == 0)
 			{
 				if($this->db->insert('terrenos', $data))
 				{
@@ -113,6 +113,7 @@ class Terreno extends CI_Controller {
 	public function editar($id)
 	{
 		$localizacion 	= $this->db->get_where('terrenos', 	array('id' => $id))->result_array();
+		$data['tomado'] = false;
 		$data['id'] 					= $id;
 		$data['lt'] 					= $localizacion[0]['lt'];
 		$data['mz'] 					= $localizacion[0]['mz'];
@@ -127,6 +128,7 @@ class Terreno extends CI_Controller {
 
 	public function update($id)
 	{
+		$data['tomado'] = false;
 		$this->form_validation->set_rules('lt', 'Lote', 'trim|required|numeric');
 		$this->form_validation->set_rules('mz', 'Manzana', 'trim|required|numeric');
 		$this->form_validation->set_rules('sec', 'Seccion', 'trim|required|numeric');
@@ -157,6 +159,7 @@ class Terreno extends CI_Controller {
 
 		}else {
 			$data = array(
+				"id"				=> $id,
 				"lt"				=> $this->input->post("lt"),
 				"mz" 				=> $this->input->post("mz"),
 				"sec" 				=> $this->input->post("sec"),
@@ -164,11 +167,30 @@ class Terreno extends CI_Controller {
 				"nombre_apartante" 	=> $this->input->post("nombre_apartante"),
 				"domicilio" 		=> $this->input->post("domicilio")
 			);
+			
 
-			$this->db->where('id', $id);
-			if($this->db->update('terrenos', $data))
+			$data2 = array(
+				"lt"				=> $this->input->post("lt"),
+				"mz" 				=> $this->input->post("mz"),
+				"sec" 				=> $this->input->post("sec"),
+				"fila" 				=> $this->input->post("fila"),
+				"panteon" 			=> $this->input->post("panteon")
+			);
+
+			if($this->db->get_where('terrenos', $data2)->num_rows() == 0 &&  $this->db->get_where('localizacion', $data2)->num_rows() == 0)
 			{
-				redirect(base_url("terreno/ver/".$id));
+				$this->db->where('id', $id);
+				if($this->db->update('terrenos', $data))
+				{
+					redirect(base_url("terreno/ver/".$id));
+				}				
+			}
+			else 
+			{
+				$data['tomado'] = true;
+				$this->load->view('header');		
+				$this->load->view('editar_terreno', $data);	
+				$this->load->view('footer');
 			}
 		}
 	}

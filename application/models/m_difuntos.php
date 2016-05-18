@@ -83,6 +83,7 @@ class M_Difuntos extends CI_Model {
 	{
 		$localizacion 	= $this->db->get_where('localizacion', 	array('id_difunto' => $id))->result_array();
 		$data['id'] 					= $id;
+		$data['tomado'] 				= false;
 		$data['lt'] 					= $localizacion[0]['lt'];
 		$data['mz'] 					= $localizacion[0]['mz'];
 		$data['sec'] 					= $localizacion[0]['sec'];

@@ -12,6 +12,12 @@ class Registro extends CI_Controller {
 
 	public function index()
 	{
+		// if($this->session->userdata('logger') == TRUE){
+			
+		// }else{
+		// redirect(base_url('login/'));
+		// }
+
 		$this->load->view('header');
 		$this->load->view('registro');
 		$this->load->view('footer');
@@ -27,6 +33,7 @@ class Registro extends CI_Controller {
 
 	public function localizacion($id)
 	{
+		$data['tomado'] = false;
 		$data['id'] = $id;
 		$this->load->view('header');
 		$this->load->view('localizacion', $data);
@@ -126,6 +133,7 @@ class Registro extends CI_Controller {
 
 	public function addLocalizacion($id)
 	{
+		$data['tomado'] = false;
 		$this->form_validation->set_rules('lt', 'Lote', 'trim|required|numeric');
 		$this->form_validation->set_rules('mz', 'Manzana', 'trim|required|numeric');
 		$this->form_validation->set_rules('sec', 'Seccion', 'trim|required|numeric');
@@ -149,6 +157,7 @@ class Registro extends CI_Controller {
 		}else {
 			$data = array(
 				"id_difunto" 	=> $id,
+				"id" 	=> $id,
 				"lt"			=> $this->input->post("lt"),
 				"mz" 			=> $this->input->post("mz"),
 				"sec" 			=> $this->input->post("sec"),
@@ -157,10 +166,28 @@ class Registro extends CI_Controller {
 				"domicilio" 	=> $this->input->post("domicilio")
 			);
 
-			if($this->db->insert('localizacion', $data))
+			$data2 = array(
+				"lt"				=> $this->input->post("lt"),
+				"mz" 				=> $this->input->post("mz"),
+				"sec" 				=> $this->input->post("sec"),
+				"fila" 				=> $this->input->post("fila"),
+				"panteon" 			=> $this->input->post("panteon")
+			);
+
+			if($this->db->get_where('terrenos', $data2)->num_rows() == 0 && $this->db->get_where('localizacion', $data2)->num_rows() == 0)
 			{
-				redirect(base_url("registro/exito"));
+				if($this->db->insert('localizacion', $data))
+				{
+					redirect(base_url("registro/exito"));
+				}			
 			}
+			else 
+			{
+				$data['tomado'] = true;
+				$this->load->view('header');		
+				$this->load->view('localizacion', $data);	
+				$this->load->view('footer');
+			}			
 		}
 
 	}

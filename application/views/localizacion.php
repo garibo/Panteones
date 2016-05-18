@@ -1,3 +1,13 @@
+<?php 
+if($tomado)
+{
+  echo '<div class="alert alert-danger alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button> 
+  <h4>Parece que tenemos un error!</h4> 
+  <p>Esta locacion ya ha sido tomada o apartada por alguien mas</p> 
+ </div>';
+} 
+?>
+
 <h1>Registro Paso 3  - Localizacion</h1>
 
 <?php echo form_open('registro/addLocalizacion/'.$id); ?>
