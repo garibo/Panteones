@@ -49,7 +49,7 @@ done(function(data){
 	    labels: [datos[0].mes, datos[1].mes, datos[2].mes, datos[3].mes, datos[4].mes, datos[5].mes, datos[6].mes],
 	    datasets: [
 	        {
-	            label: "Tasa de mortalidad por edades",
+	            label: "Tasa de registro",
 	            fill: false,
 	            lineTension: 0.1,
 	            backgroundColor: "rgba(75,192,192,0.4)",

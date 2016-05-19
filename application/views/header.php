@@ -9,7 +9,7 @@
     <link href="<?= base_url('assets/css/sweetalert.css') ?>" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/estilo.css') ?>">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<?= base_url('assets/js/jquery-1.11.3.js'); ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js'); ?> "></script>
     <script src="<?= base_url('assets/js/sweetalert.min.js'); ?> "></script>
     

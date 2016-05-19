@@ -84,16 +84,6 @@ if($tomado)
   </div>
 
   <div class="form-group">
-  <label for="inputPassword3" class="col-sm-2 control-label"> </label>
-   <div class="checkbox col-sm-10">
-      <label>
-        <input type="checkbox" name="estado"> En aparte
-      </label>
-    </div>
-  </div>
-
-
-  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <input type="submit" value="Guardar cambios" class="turquoise-flat-button">
     </div>

@@ -71,6 +71,5 @@ CREATE TABLE terrenos
 	fila 						numeric,
 	panteon						varchar(70) 			character set utf8 collate utf8_spanish_ci,
 	domicilio					varchar(70) 			character set utf8 collate utf8_spanish_ci,
-	estado						boolean,
 	PRIMARY KEY (id)
 );

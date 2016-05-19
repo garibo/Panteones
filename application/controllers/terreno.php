@@ -65,7 +65,6 @@ class Terreno extends CI_Controller {
 				"fila" 				=> $this->input->post("fila"),
 				"panteon" 			=> $this->input->post("panteon"),
 				"nombre_apartante" 	=> $this->input->post("nombre_apartante"),
-				"estado" 			=> $this->input->post("estado") == 'on' ? 1 : 0,
 				"domicilio" 		=> $this->input->post("domicilio")
 			);
 
