@@ -12,6 +12,11 @@ class Archivo extends CI_Controller {
 
 	public function index()
 	{
+		if($this->session->userdata('logger') == TRUE){
+			
+		}else{
+		redirect(base_url('login/'));
+		}
 		$this->load->view('header');
 		$this->load->view('tabla');
 		$this->load->view('footer');
